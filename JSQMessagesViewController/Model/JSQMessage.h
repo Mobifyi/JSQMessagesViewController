@@ -29,10 +29,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  and the date that the message was sent. If initialized as a media message it also contains a media attachment,
  *  otherwise it contains the message text.
  */
+
+
 @interface JSQMessage : NSObject <JSQMessageData, NSCoding, NSCopying>
 
 /**
- *  Returns the string identifier that uniquely identifies the user who sent the message. 
+ *  Returns the string identifier that uniquely identifies the message.
+ */
+
+@property (copy, nonatomic, readonly) NSString *messageId;
+
+/**
+ *  Returns the string identifier that uniquely identifies the user who sent the message.
  */
 @property (copy, nonatomic, readonly) NSString *senderId;
 
@@ -82,7 +90,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)messageWithSenderId:(NSString *)senderId
                         displayName:(NSString *)displayName
-                               text:(NSString *)text;
+                               text:(NSString *)text
+                          messageId:(NSString*)messageId;
 
 /**
  *  Initializes and returns a message object having the given senderId, senderDisplayName, date, and text.
@@ -99,7 +108,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithSenderId:(NSString *)senderId
                senderDisplayName:(NSString *)senderDisplayName
                             date:(NSDate *)date
-                            text:(NSString *)text;
+                            text:(NSString *)text
+                       messageId:(NSString*)messageId;
 /**
  *  Initializes and returns a message object having the given senderId, displayName, media,
  *  and current system date.
@@ -114,7 +124,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)messageWithSenderId:(NSString *)senderId
                         displayName:(NSString *)displayName
-                              media:(id<JSQMessageMediaData>)media;
+                              media:(id<JSQMessageMediaData>)media
+                          messageId:(NSString*)messageId;
 
 /**
  *  Initializes and returns a message object having the given senderId, displayName, date, and media.
@@ -131,7 +142,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithSenderId:(NSString *)senderId
                senderDisplayName:(NSString *)senderDisplayName
                             date:(NSDate *)date
-                           media:(id<JSQMessageMediaData>)media;
+                           media:(id<JSQMessageMediaData>)media
+                       messageId:(NSString*)messageId;
 
 /**
  *  Not a valid initializer.

@@ -26,23 +26,27 @@
 + (instancetype)messageWithSenderId:(NSString *)senderId
                         displayName:(NSString *)displayName
                                text:(NSString *)text
+                          messageId:(NSString*)messageId
 {
     return [[self alloc] initWithSenderId:senderId
                         senderDisplayName:displayName
                                      date:[NSDate date]
-                                     text:text];
+                                     text:text
+                                messageId:messageId];
 }
 
 - (instancetype)initWithSenderId:(NSString *)senderId
                senderDisplayName:(NSString *)senderDisplayName
                             date:(NSDate *)date
                             text:(NSString *)text
+                       messageId:(NSString*)messageId
 {
     NSParameterAssert(text != nil);
-
+    
     self = [self initWithSenderId:senderId senderDisplayName:senderDisplayName date:date isMedia:NO];
     if (self) {
         _text = [text copy];
+        _messageId = [messageId copy];
     }
     return self;
 }
@@ -50,23 +54,27 @@
 + (instancetype)messageWithSenderId:(NSString *)senderId
                         displayName:(NSString *)displayName
                               media:(id<JSQMessageMediaData>)media
+                          messageId:(NSString*)messageId
 {
     return [[self alloc] initWithSenderId:senderId
                         senderDisplayName:displayName
                                      date:[NSDate date]
-                                    media:media];
+                                    media:media
+                                messageId:messageId];
 }
 
 - (instancetype)initWithSenderId:(NSString *)senderId
                senderDisplayName:(NSString *)senderDisplayName
                             date:(NSDate *)date
                            media:(id<JSQMessageMediaData>)media
+                       messageId:(NSString*)messageId
 {
     NSParameterAssert(media != nil);
-
+    
     self = [self initWithSenderId:senderId senderDisplayName:senderDisplayName date:date isMedia:YES];
     if (self) {
         _media = media;
+        _messageId = messageId;
     }
     return self;
 }
@@ -79,7 +87,7 @@
     NSParameterAssert(senderId != nil);
     NSParameterAssert(senderDisplayName != nil);
     NSParameterAssert(date != nil);
-
+    
     self = [super init];
     if (self) {
         _senderId = [senderId copy];
@@ -102,19 +110,19 @@
     if (self == object) {
         return YES;
     }
-
+    
     if (![object isKindOfClass:[self class]]) {
         return NO;
     }
-
+    
     JSQMessage *aMessage = (JSQMessage *)object;
-
+    
     if (self.isMediaMessage != aMessage.isMediaMessage) {
         return NO;
     }
-
+    
     BOOL hasEqualContent = self.isMediaMessage ? [self.media isEqual:aMessage.media] : [self.text isEqualToString:aMessage.text];
-
+    
     return [self.senderId isEqualToString:aMessage.senderId]
     && [self.senderDisplayName isEqualToString:aMessage.senderDisplayName]
     && ([self.date compare:aMessage.date] == NSOrderedSame)
@@ -150,6 +158,7 @@
         _isMediaMessage = [aDecoder decodeBoolForKey:NSStringFromSelector(@selector(isMediaMessage))];
         _text = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(text))];
         _media = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(media))];
+        _messageId = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(messageId))];
     }
     return self;
 }
@@ -161,7 +170,7 @@
     [aCoder encodeObject:self.date forKey:NSStringFromSelector(@selector(date))];
     [aCoder encodeBool:self.isMediaMessage forKey:NSStringFromSelector(@selector(isMediaMessage))];
     [aCoder encodeObject:self.text forKey:NSStringFromSelector(@selector(text))];
-
+    
     if ([self.media conformsToProtocol:@protocol(NSCoding)]) {
         [aCoder encodeObject:self.media forKey:NSStringFromSelector(@selector(media))];
     }
@@ -175,13 +184,15 @@
         return [[[self class] allocWithZone:zone] initWithSenderId:self.senderId
                                                  senderDisplayName:self.senderDisplayName
                                                               date:self.date
-                                                             media:self.media];
+                                                             media:self.media
+                                                         messageId:self.messageId];
     }
-
+    
     return [[[self class] allocWithZone:zone] initWithSenderId:self.senderId
                                              senderDisplayName:self.senderDisplayName
                                                           date:self.date
-                                                          text:self.text];
+                                                          text:self.text
+                                                     messageId:self.messageId];
 }
 
 @end
