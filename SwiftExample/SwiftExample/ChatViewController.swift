@@ -98,7 +98,7 @@ class ChatViewController: JSQMessagesViewController {
         var copyMessage = self.messages.last?.copy()
         
         if (copyMessage == nil) {
-            copyMessage = JSQMessage(senderId: AvatarIdJobs, displayName: getName(User.Jobs), text: "First received!")
+            copyMessage = JSQMessage(senderId: AvatarIdJobs, displayName: getName(User.Jobs), text: "First received!",messageId:"asbcasff")
         }
             
         var newMessage:JSQMessage!
@@ -163,14 +163,14 @@ class ChatViewController: JSQMessagesViewController {
                 assertionFailure("Error: This Media type was not recognised")
             }
             
-            newMessage = JSQMessage(senderId: AvatarIdJobs, displayName: getName(User.Jobs), media: newMediaData)
+            newMessage = JSQMessage(senderId: AvatarIdJobs, displayName: getName(User.Jobs), media: newMediaData,messageId:"asbasdasdc")
         }
         else {
             /**
              *  Last message was a text message
              */
             
-            newMessage = JSQMessage(senderId: AvatarIdJobs, displayName: getName(User.Jobs), text: (copyMessage! as AnyObject).text)
+            newMessage = JSQMessage(senderId: AvatarIdJobs, displayName: getName(User.Jobs), text: (copyMessage! as AnyObject).text,messageId:"asjsahkjbc")
         }
         
         /**
@@ -229,7 +229,7 @@ class ChatViewController: JSQMessagesViewController {
          *  3. Call `finishSendingMessage`
          */
         
-        let message = JSQMessage(senderId: senderId, senderDisplayName: senderDisplayName, date: date, text: text)
+        let message = JSQMessage(senderId: senderId, senderDisplayName: senderDisplayName, date: date, text: text,messageId:"asbasdasdsadaweqwc")
         self.messages.append(message)
         self.finishSendingMessage(animated: true)
     }
@@ -314,7 +314,7 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     func addMedia(_ media:JSQMediaItem) {
-        let message = JSQMessage(senderId: self.senderId(), displayName: self.senderDisplayName(), media: media)
+        let message = JSQMessage(senderId: self.senderId(), displayName: self.senderDisplayName(), media: media,messageId:"asbtreytc")
         self.messages.append(message)
         
         //Optional: play sent sound

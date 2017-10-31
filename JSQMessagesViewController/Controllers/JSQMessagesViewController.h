@@ -40,6 +40,17 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (weak, nonatomic, readonly, nullable) JSQMessagesCollectionView *collectionView;
 
+
+@property (weak, nonatomic) IBOutlet UILabel *productNameLabelOutlet;
+
+
+
+@property (weak, nonatomic) IBOutlet UILabel *productPriceLabelOutlet;
+
+
+
+@property (weak, nonatomic) IBOutlet UIImageView *productImageViewOutlet;
+
 /**
  *  Returns the input toolbar view object managed by this view controller.
  *  This view controller is the toolbar's delegate.

@@ -954,4 +954,7 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
                      completion:nil];
 }
 
+- (IBAction)detailsButtonAction:(id)sender {
+}
+
 @end

@@ -90,27 +90,27 @@ var convo = Conversation(firstName: "Steave", lastName: "Jobs", preferredName:  
 
 var conversation = [JSQMessage]()
 
-let message = JSQMessage(senderId: AvatarIdCook, displayName: getName(User.Cook), text: "What is this Black Majic?")
-let message2 = JSQMessage(senderId: AvatarIDSquires, displayName: getName(User.Squires), text: "It is simple, elegant, and easy to use. There are super sweet default settings, but you can customize like crazy")
-let message3 = JSQMessage(senderId: AvatarIdWoz, displayName: getName(User.Wozniak), text: "It even has data detectors. You can call me tonight. My cell number is 123-456-7890. My website is www.hexedbits.com.")
-let message4 = JSQMessage(senderId: AvatarIdJobs, displayName: getName(User.Jobs), text: "JSQMessagesViewController is nearly an exact replica of the iOS Messages App. And perhaps, better.")
-let message5 = JSQMessage(senderId: AvatarIDLeonard, displayName: getName(User.Leonard), text: "It is unit-tested, free, open-source, and documented.")
+let message = JSQMessage(senderId: AvatarIdCook, displayName: getName(User.Cook), text: "What is this Black Majic?",messageId:"asbc")
+let message2 = JSQMessage(senderId: AvatarIDSquires, displayName: getName(User.Squires), text: "It is simple, elegant, and easy to use. There are super sweet default settings, but you can customize like crazy",messageId:"asb")
+let message3 = JSQMessage(senderId: AvatarIdWoz, displayName: getName(User.Wozniak), text: "It even has data detectors. You can call me tonight. My cell number is 123-456-7890. My website is www.hexedbits.com.",messageId:"sasbc")
+let message4 = JSQMessage(senderId: AvatarIdJobs, displayName: getName(User.Jobs), text: "JSQMessagesViewController is nearly an exact replica of the iOS Messages App. And perhaps, better.",messageId:"asbcss")
+let message5 = JSQMessage(senderId: AvatarIDLeonard, displayName: getName(User.Leonard), text: "It is unit-tested, free, open-source, and documented.",messageId:"asbcaaa")
 
 
-let message6 = JSQMessage(senderId: AvatarIDLeonard, displayName: getName(User.Leonard), text: "This is incredible")
-let message7 = JSQMessage(senderId: AvatarIdWoz, displayName: getName(User.Wozniak), text: "I would have to agree")
-let message8 = JSQMessage(senderId: AvatarIDLeonard, displayName: getName(User.Leonard), text: "It is unit-tested, free, open-source, and documented like a boss.")
-let message9 = JSQMessage(senderId: AvatarIdWoz, displayName: getName(User.Wozniak), text: "You guys need an award for this, I'll talk to my people at Apple. 💯 💯 💯")
+let message6 = JSQMessage(senderId: AvatarIDLeonard, displayName: getName(User.Leonard), text: "This is incredible",messageId:"asbcaaassd")
+let message7 = JSQMessage(senderId: AvatarIdWoz, displayName: getName(User.Wozniak), text: "I would have to agree",messageId:"assssc")
+let message8 = JSQMessage(senderId: AvatarIDLeonard, displayName: getName(User.Leonard), text: "It is unit-tested, free, open-source, and documented like a boss.",messageId:"asbckjhkh")
+let message9 = JSQMessage(senderId: AvatarIdWoz, displayName: getName(User.Wozniak), text: "You guys need an award for this, I'll talk to my people at Apple. 💯 💯 💯",messageId:"aasdresbc")
 
 // photo message
 let photoItem = JSQPhotoMediaItem(image: UIImage(named: "goldengate"))
-let photoMessage = JSQMessage(senderId: AvatarIdWoz, displayName: getName(User.Wozniak), media: photoItem)
+let photoMessage = JSQMessage(senderId: AvatarIdWoz, displayName: getName(User.Wozniak), media: photoItem,messageId:"asbcasfe")
 
 // audio mesage
 let sample = Bundle.main.path(forResource: "jsq_messages_sample", ofType: "m4a")
 let audioData = try? Data(contentsOf: URL(fileURLWithPath: sample!))
 let audioItem = JSQAudioMediaItem(data: audioData)
-let audioMessage = JSQMessage(senderId: AvatarIdWoz, displayName: getName(User.Wozniak), media: audioItem)
+let audioMessage = JSQMessage(senderId: AvatarIdWoz, displayName: getName(User.Wozniak), media: audioItem,messageId:"asbcrty")
 
 func makeGroupConversation()->[JSQMessage] {
     conversation = [message, message2,message3, message4, message5, photoMessage, audioMessage]
