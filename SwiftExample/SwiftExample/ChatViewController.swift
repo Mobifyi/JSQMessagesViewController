@@ -20,6 +20,9 @@ class ChatViewController: JSQMessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        productPriceLabelOutlet?.text = "hey there!"
+        productNameLabelOutlet?.text = "hey there!"
+
         // Setup navigation
         setupBackButton()
         
@@ -73,6 +76,8 @@ class ChatViewController: JSQMessagesViewController {
     func backButtonTapped() {
         dismiss(animated: true, completion: nil)
     }
+    
+    
     
     func receiveMessagePressed(_ sender: UIBarButtonItem) {
         /**
@@ -432,6 +437,10 @@ class ChatViewController: JSQMessagesViewController {
         }
         
         return kJSQMessagesCollectionViewCellLabelHeightDefault;
+    }
+    
+    override func detailsButtonAction(_ sender: Any) {
+        print("Details button Pressed")
     }
     
 }
