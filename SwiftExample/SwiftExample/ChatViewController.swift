@@ -392,6 +392,14 @@ class ChatViewController: JSQMessagesViewController {
         return NSAttributedString(string: message.senderDisplayName)
     }
     
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = (super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell)
+        let message = messages[indexPath.item]
+        if !message.isMediaMessage {
+            cell.timeLabelOutlet?.text = "hey there"
+        }
+        return cell
+    }
     override func collectionView(_ collectionView: JSQMessagesCollectionView, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout, heightForCellTopLabelAt indexPath: IndexPath) -> CGFloat {
         /**
          *  Each label in a cell has a `height` delegate method that corresponds to its text dataSource method
