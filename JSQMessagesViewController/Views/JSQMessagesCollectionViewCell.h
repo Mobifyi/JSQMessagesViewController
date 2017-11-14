@@ -219,6 +219,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet UILabel *timeLabelOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *dayLabelOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *currentStatusOutlet;
 
 @end
 
