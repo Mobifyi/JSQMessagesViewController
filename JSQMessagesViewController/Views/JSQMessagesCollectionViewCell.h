@@ -214,7 +214,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @warning Note that all message cells share the all actions registered here.
  */
+
 + (void)registerMenuAction:(SEL)action;
+
+@property (weak, nonatomic) IBOutlet UILabel *timeLabelOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *dayLabelOutlet;
 
 @end
 
