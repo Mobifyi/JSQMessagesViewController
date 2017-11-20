@@ -317,7 +317,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
+/**
+ Used for showing the product details.
+
+ @param sender current sender object.
+ */
 - (IBAction)detailsButtonAction:(id)sender;
+
+
+/**
+ Used for hiding unhiding the product details view.
+ */
+@property (weak, nonatomic) IBOutlet UIView *productDetailsViewOutlet;
+
+
+/**
+ If you want to show the product details as visible then you have to override this value to true from the defualt false value.
+ */
+@property (assign, nonatomic) BOOL productDetailsVisibility;
 
 
 @end

@@ -162,6 +162,7 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
     [self.inputToolbar removeFromSuperview];
 
     self.automaticallyScrollsToMostRecentMessage = YES;
+    self.productDetailsVisibility = NO;
 
     self.outgoingCellIdentifier = [JSQMessagesCollectionViewCellOutgoing cellReuseIdentifier];
     self.outgoingMediaCellIdentifier = [JSQMessagesCollectionViewCellOutgoing mediaCellReuseIdentifier];
@@ -249,6 +250,12 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
             [self scrollToBottomAnimated:NO];
             [self.collectionView.collectionViewLayout invalidateLayoutWithContext:[JSQMessagesCollectionViewFlowLayoutInvalidationContext context]];
         });
+    }
+    
+    if (self.productDetailsVisibility) {
+            [self.productDetailsViewOutlet setHidden:NO];
+    } else {
+            [self.productDetailsViewOutlet setHidden:YES];
     }
 }
 
