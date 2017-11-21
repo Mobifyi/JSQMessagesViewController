@@ -56,10 +56,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beY-or-LUU">
-                                <rect key="frame" x="229" y="75" width="0.0" height="15"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="15" id="fC3-O4-7Pr"/>
-                                </constraints>
+                                <rect key="frame" x="229" y="90" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -74,12 +71,13 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="KYU-B8-cUW" secondAttribute="trailing" id="4qS-03-PFO"/>
-                            <constraint firstAttribute="bottom" secondItem="7xw-O4-kTd" secondAttribute="bottom" constant="4" id="7OW-q0-Okt"/>
                             <constraint firstAttribute="bottom" secondItem="KYU-B8-cUW" secondAttribute="bottom" id="B2v-Gq-Y1L"/>
                             <constraint firstAttribute="bottom" secondItem="beY-or-LUU" secondAttribute="bottom" constant="4" id="Bf7-0L-JSz"/>
                             <constraint firstItem="beY-or-LUU" firstAttribute="leading" secondItem="7xw-O4-kTd" secondAttribute="trailing" constant="2" id="E6W-KA-PrX"/>
+                            <constraint firstAttribute="bottom" secondItem="7xw-O4-kTd" secondAttribute="bottom" constant="4" id="Qag-fH-bSq"/>
                             <constraint firstAttribute="trailing" secondItem="OCS-Fu-acq" secondAttribute="trailing" id="TdB-8V-aUc"/>
                             <constraint firstItem="KYU-B8-cUW" firstAttribute="leading" secondItem="btS-p8-B7Z" secondAttribute="leading" constant="6" id="Tg9-9l-vr8"/>
+                            <constraint firstItem="7xw-O4-kTd" firstAttribute="centerY" secondItem="beY-or-LUU" secondAttribute="centerY" id="Wep-jA-wvB"/>
                             <constraint firstItem="KYU-B8-cUW" firstAttribute="top" secondItem="btS-p8-B7Z" secondAttribute="top" id="aEL-yH-N1p"/>
                             <constraint firstAttribute="bottom" secondItem="OCS-Fu-acq" secondAttribute="bottom" id="aJ4-ZD-tk9"/>
                             <constraint firstItem="7xw-O4-kTd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="btS-p8-B7Z" secondAttribute="leading" id="qU2-PD-nar"/>

@@ -56,10 +56,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKk-Hh-jqE">
-                                <rect key="frame" x="232" y="75" width="0.0" height="15"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="15" id="ElF-vw-SOW"/>
-                                </constraints>
+                                <rect key="frame" x="232" y="90" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -79,22 +76,24 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="TKk-Hh-jqE" secondAttribute="bottom" constant="4" id="150-X3-1uu"/>
                             <constraint firstAttribute="bottom" secondItem="aS6-lS-wSt" secondAttribute="bottom" constant="4" id="1KJ-rS-lR4"/>
                             <constraint firstAttribute="trailing" secondItem="aS6-lS-wSt" secondAttribute="trailing" constant="10" id="1s5-nX-hi2"/>
+                            <constraint firstItem="TKk-Hh-jqE" firstAttribute="centerY" secondItem="aS6-lS-wSt" secondAttribute="centerY" id="7q2-wf-fKb"/>
                             <constraint firstItem="vLY-aM-0Dr" firstAttribute="leading" secondItem="2zh-vR-QJW" secondAttribute="leading" id="7rI-Nc-AK3"/>
                             <constraint firstAttribute="trailing" secondItem="2qm-c6-OZf" secondAttribute="trailing" id="AEu-1l-tqh"/>
                             <constraint firstItem="2qm-c6-OZf" firstAttribute="top" secondItem="2zh-vR-QJW" secondAttribute="top" id="DbW-Cx-zOW"/>
                             <constraint firstItem="dVx-XT-aEs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2zh-vR-QJW" secondAttribute="leading" id="EzE-LQ-zrD"/>
+                            <constraint firstAttribute="bottom" secondItem="dVx-XT-aEs" secondAttribute="bottom" constant="4" id="G1B-Iq-eHr"/>
                             <constraint firstItem="2qm-c6-OZf" firstAttribute="leading" secondItem="2zh-vR-QJW" secondAttribute="leading" id="H1H-yn-Raq"/>
                             <constraint firstItem="aS6-lS-wSt" firstAttribute="leading" secondItem="TKk-Hh-jqE" secondAttribute="trailing" constant="2" id="LqG-qv-XPE"/>
                             <constraint firstItem="vLY-aM-0Dr" firstAttribute="top" secondItem="2zh-vR-QJW" secondAttribute="top" id="RiG-21-Bqc"/>
-                            <constraint firstAttribute="bottom" secondItem="dVx-XT-aEs" secondAttribute="bottom" constant="4" id="Skm-vo-DTw"/>
                             <constraint firstAttribute="bottom" secondItem="vLY-aM-0Dr" secondAttribute="bottom" id="UbF-Bl-Q7v"/>
                             <constraint firstAttribute="trailing" secondItem="vLY-aM-0Dr" secondAttribute="trailing" constant="6" id="aVg-yy-8K7"/>
                             <constraint firstItem="TKk-Hh-jqE" firstAttribute="leading" secondItem="dVx-XT-aEs" secondAttribute="trailing" constant="2" id="avx-8t-jJ7"/>
                             <constraint firstAttribute="width" constant="244" id="imD-52-K45"/>
                             <constraint firstAttribute="bottom" secondItem="2qm-c6-OZf" secondAttribute="bottom" id="lts-Ve-wSh"/>
-                            <constraint firstAttribute="bottom" secondItem="TKk-Hh-jqE" secondAttribute="bottom" constant="4" id="qu1-mn-BC3"/>
+                            <constraint firstItem="dVx-XT-aEs" firstAttribute="centerY" secondItem="TKk-Hh-jqE" secondAttribute="centerY" id="neF-bf-Sob"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X89-B1-aAd" userLabel="Avatar container">
