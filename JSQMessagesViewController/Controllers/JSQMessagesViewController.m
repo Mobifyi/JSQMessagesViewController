@@ -163,6 +163,7 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
 
     self.automaticallyScrollsToMostRecentMessage = YES;
     self.productDetailsVisibility = NO;
+    self.producNoLongerAvailableVisibility = NO;
 
     self.outgoingCellIdentifier = [JSQMessagesCollectionViewCellOutgoing cellReuseIdentifier];
     self.outgoingMediaCellIdentifier = [JSQMessagesCollectionViewCellOutgoing mediaCellReuseIdentifier];
@@ -257,6 +258,14 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
     } else {
             [self.productDetailsViewOutlet setHidden:YES];
     }
+    
+    if (self.producNoLongerAvailableVisibility) {
+        [self.productNoLongerExistView setHidden:NO];
+    } else {
+        [self.productNoLongerExistView setHidden:YES];
+    }
+    
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated

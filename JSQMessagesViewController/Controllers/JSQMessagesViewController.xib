@@ -13,15 +13,20 @@
         <array key="Helvetica.ttc">
             <string>Helvetica</string>
         </array>
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JSQMessagesViewController">
             <connections>
+                <outlet property="NotAvailableTextOutlet" destination="mCr-6c-0xu" id="dLJ-h3-uW5"/>
                 <outlet property="collectionView" destination="l9u-2b-4LK" id="bLP-6g-CkO"/>
                 <outlet property="inputToolbar" destination="BoD-Az-3DM" id="w74-g9-1qA"/>
                 <outlet property="productDetailsViewOutlet" destination="xNp-Tc-DQY" id="iu9-zJ-SRm"/>
                 <outlet property="productImageViewOutlet" destination="8Qr-ud-fMu" id="AOs-2E-THe"/>
                 <outlet property="productNameLabelOutlet" destination="1gl-3C-YkK" id="PA2-K0-lVN"/>
+                <outlet property="productNoLongerExistView" destination="xNp-Tc-DQY" id="psN-ap-ySx"/>
                 <outlet property="productPriceLabelOutlet" destination="P3d-gb-E8C" id="7KX-Md-eoa"/>
                 <outlet property="view" destination="mUa-cS-ru4" id="nki-T1-RTI"/>
             </connections>
@@ -122,14 +127,44 @@
                         <constraint firstItem="yMF-0y-e4F" firstAttribute="leading" secondItem="s3A-4D-Eow" secondAttribute="trailing" constant="8" id="rDH-Wg-l78"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXq-GU-QmZ">
+                    <rect key="frame" x="0.0" y="20" width="375" height="64"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="warring" translatesAutoresizingMaskIntoConstraints="NO" id="Rua-hb-65p">
+                            <rect key="frame" x="10" y="24.5" width="15" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="15" id="AHz-N0-zlv"/>
+                                <constraint firstAttribute="height" constant="15" id="FLx-YA-LUF"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product no longer available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCr-6c-0xu">
+                            <rect key="frame" x="33" y="22.5" width="334" height="20"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                            <color key="textColor" red="0.93362165178571432" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="9bU-hg-Oxa"/>
+                        <constraint firstAttribute="trailing" secondItem="mCr-6c-0xu" secondAttribute="trailing" constant="8" id="Ik8-pH-ItR"/>
+                        <constraint firstItem="mCr-6c-0xu" firstAttribute="centerY" secondItem="Rua-hb-65p" secondAttribute="centerY" id="SSq-WH-Y7u"/>
+                        <constraint firstItem="Rua-hb-65p" firstAttribute="centerY" secondItem="JXq-GU-QmZ" secondAttribute="centerY" id="asy-we-CnC"/>
+                        <constraint firstItem="Rua-hb-65p" firstAttribute="leading" secondItem="JXq-GU-QmZ" secondAttribute="leading" constant="10" id="fpK-G6-fQm"/>
+                        <constraint firstItem="mCr-6c-0xu" firstAttribute="leading" secondItem="Rua-hb-65p" secondAttribute="trailing" constant="8" id="fw2-BF-H5o"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="l9u-2b-4LK" firstAttribute="top" secondItem="ZS7-9t-H9f" secondAttribute="top" id="2XE-gM-bzp"/>
                 <constraint firstItem="BoD-Az-3DM" firstAttribute="bottom" secondItem="ZS7-9t-H9f" secondAttribute="bottom" id="8Lz-zr-iky"/>
+                <constraint firstItem="JXq-GU-QmZ" firstAttribute="top" secondItem="ZS7-9t-H9f" secondAttribute="top" id="8wZ-Bf-Rem"/>
+                <constraint firstItem="JXq-GU-QmZ" firstAttribute="leading" secondItem="ZS7-9t-H9f" secondAttribute="leading" id="AR8-1d-JwO"/>
                 <constraint firstItem="l9u-2b-4LK" firstAttribute="leading" secondItem="ZS7-9t-H9f" secondAttribute="leading" id="DXU-t3-zRd"/>
                 <constraint firstItem="BoD-Az-3DM" firstAttribute="trailing" secondItem="ZS7-9t-H9f" secondAttribute="trailing" id="H9d-8J-6Wr"/>
                 <constraint firstItem="xNp-Tc-DQY" firstAttribute="trailing" secondItem="ZS7-9t-H9f" secondAttribute="trailing" id="IkR-uE-ETx"/>
+                <constraint firstItem="ZS7-9t-H9f" firstAttribute="trailing" secondItem="JXq-GU-QmZ" secondAttribute="trailing" id="LmA-0C-aDo"/>
                 <constraint firstItem="xNp-Tc-DQY" firstAttribute="leading" secondItem="ZS7-9t-H9f" secondAttribute="leading" id="Y57-FY-asL"/>
                 <constraint firstItem="l9u-2b-4LK" firstAttribute="trailing" secondItem="ZS7-9t-H9f" secondAttribute="trailing" id="hc2-q9-HAP"/>
                 <constraint firstItem="BoD-Az-3DM" firstAttribute="leading" secondItem="ZS7-9t-H9f" secondAttribute="leading" id="m70-Qr-3Sn"/>
@@ -141,4 +176,7 @@
             <point key="canvasLocation" x="34.5" y="74.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="warring" width="16" height="16"/>
+    </resources>
 </document>

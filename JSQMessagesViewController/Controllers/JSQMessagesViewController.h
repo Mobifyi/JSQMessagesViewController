@@ -31,8 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @warning This class is intended to be subclassed. You should not use it directly.
  */
 @interface JSQMessagesViewController : UIViewController <JSQMessagesCollectionViewDataSource,
-                                                         JSQMessagesCollectionViewDelegateFlowLayout,
-                                                         UITextViewDelegate>
+JSQMessagesCollectionViewDelegateFlowLayout,
+UITextViewDelegate>
 
 /**
  *  Returns the collection view object managed by this view controller.
@@ -67,7 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign, nonatomic) BOOL automaticallyScrollsToMostRecentMessage;
 
 /**
- *  The collection view cell identifier to use for dequeuing outgoing message collection view cells 
+ *  The collection view cell identifier to use for dequeuing outgoing message collection view cells
  *  in the collectionView for text messages.
  *
  *  @discussion This cell identifier is used for outgoing text message data items.
@@ -76,10 +76,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @see JSQMessagesCollectionViewCellOutgoing.
  *
- *  @warning Overriding this property's default value is *not* recommended. 
+ *  @warning Overriding this property's default value is *not* recommended.
  *  You should only override this property's default value if you are proividing your own cell prototypes.
- *  These prototypes must be registered with the collectionView for reuse and you are then responsible for 
- *  completely overriding many delegate and data source methods for the collectionView, 
+ *  These prototypes must be registered with the collectionView for reuse and you are then responsible for
+ *  completely overriding many delegate and data source methods for the collectionView,
  *  including `collectionView:cellForItemAtIndexPath:`.
  */
 @property (copy, nonatomic) NSString *outgoingCellIdentifier;
@@ -103,7 +103,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (copy, nonatomic) NSString *outgoingMediaCellIdentifier;
 
 /**
- *  The collection view cell identifier to use for dequeuing incoming message collection view cells 
+ *  The collection view cell identifier to use for dequeuing incoming message collection view cells
  *  in the collectionView for text messages.
  *
  *  @discussion This cell identifier is used for incoming text message data items.
@@ -112,16 +112,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @see JSQMessagesCollectionViewCellIncoming.
  *
- *  @warning Overriding this property's default value is *not* recommended. 
- *  You should only override this property's default value if you are proividing your own cell prototypes. 
- *  These prototypes must be registered with the collectionView for reuse and you are then responsible for 
- *  completely overriding many delegate and data source methods for the collectionView, 
+ *  @warning Overriding this property's default value is *not* recommended.
+ *  You should only override this property's default value if you are proividing your own cell prototypes.
+ *  These prototypes must be registered with the collectionView for reuse and you are then responsible for
+ *  completely overriding many delegate and data source methods for the collectionView,
  *  including `collectionView:cellForItemAtIndexPath:`.
  */
 @property (copy, nonatomic) NSString *incomingCellIdentifier;
 
 /**
- *  The collection view cell identifier to use for dequeuing incoming message collection view cells 
+ *  The collection view cell identifier to use for dequeuing incoming message collection view cells
  *  in the collectionView for media messages.
  *
  *  @discussion This cell identifier is used for incoming media message data items.
@@ -303,14 +303,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Called when `UIMenuControllerWillShowMenuNotification` is posted.
-
+ 
  @param notification The posted notification.
  */
 - (void)didReceiveMenuWillShowNotification:(NSNotification *)notification;
 
 /**
  Called when `UIMenuControllerWillHideMenuNotification` is posted.
-
+ 
  @param notification The posted notification.
  */
 - (void)didReceiveMenuWillHideNotification:(NSNotification *)notification;
@@ -319,7 +319,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Used for showing the product details.
-
+ 
  @param sender current sender object.
  */
 - (IBAction)detailsButtonAction:(id)sender;
@@ -330,12 +330,29 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (weak, nonatomic) IBOutlet UIView *productDetailsViewOutlet;
 
-
 /**
  If you want to show the product details as visible then you have to override this value to true from the defualt false value.
  */
 @property (assign, nonatomic) BOOL productDetailsVisibility;
 
+
+/**
+ If you wanted to show that the product is no longer available, then you have to override this value to true from the defualt false value.
+ */
+@property (assign, nonatomic) BOOL producNoLongerAvailableVisibility;
+
+
+
+/**
+ Used for hiding unhiding the product no longer available view.
+ */
+@property (weak, nonatomic) IBOutlet UIView *productNoLongerExistView;
+
+
+/**
+ If you want to do the localization for the text you can give it here.
+ */
+@property (weak, nonatomic) IBOutlet UILabel *NotAvailableTextOutlet;
 
 @end
 
