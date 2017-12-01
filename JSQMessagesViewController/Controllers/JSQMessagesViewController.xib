@@ -23,10 +23,10 @@
                 <outlet property="NotAvailableTextOutlet" destination="mCr-6c-0xu" id="dLJ-h3-uW5"/>
                 <outlet property="collectionView" destination="l9u-2b-4LK" id="bLP-6g-CkO"/>
                 <outlet property="inputToolbar" destination="BoD-Az-3DM" id="w74-g9-1qA"/>
-                <outlet property="productDetailsViewOutlet" destination="xNp-Tc-DQY" id="iu9-zJ-SRm"/>
+                <outlet property="productDetailsViewOutlet" destination="xNp-Tc-DQY" id="b7H-oC-2lZ"/>
                 <outlet property="productImageViewOutlet" destination="8Qr-ud-fMu" id="AOs-2E-THe"/>
                 <outlet property="productNameLabelOutlet" destination="1gl-3C-YkK" id="PA2-K0-lVN"/>
-                <outlet property="productNoLongerExistView" destination="xNp-Tc-DQY" id="psN-ap-ySx"/>
+                <outlet property="productNoLongerExistView" destination="JXq-GU-QmZ" id="KbN-ht-ONX"/>
                 <outlet property="productPriceLabelOutlet" destination="P3d-gb-E8C" id="7KX-Md-eoa"/>
                 <outlet property="view" destination="mUa-cS-ru4" id="nki-T1-RTI"/>
             </connections>
