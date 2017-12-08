@@ -890,6 +890,8 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
     UIEdgeInsets insets = UIEdgeInsetsMake(self.topLayoutGuide.length + top, 0.0f, bottom, 0.0f);
     if (self.productDetailsVisibility) {
         insets = UIEdgeInsetsMake(self.topLayoutGuide.length + top + 60, 0.0f, bottom, 0.0f);
+    } else if (self.producNoLongerAvailableVisibility) {
+        insets = UIEdgeInsetsMake(self.topLayoutGuide.length + top + 60, 0.0f, bottom, 0.0f);
     }
     self.collectionView.contentInset = insets;
     self.collectionView.scrollIndicatorInsets = insets;

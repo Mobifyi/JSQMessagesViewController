@@ -130,28 +130,18 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXq-GU-QmZ">
                     <rect key="frame" x="0.0" y="20" width="375" height="64"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="warring" translatesAutoresizingMaskIntoConstraints="NO" id="Rua-hb-65p">
-                            <rect key="frame" x="10" y="24.5" width="15" height="15"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="15" id="AHz-N0-zlv"/>
-                                <constraint firstAttribute="height" constant="15" id="FLx-YA-LUF"/>
-                            </constraints>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product no longer available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCr-6c-0xu">
-                            <rect key="frame" x="33" y="22.5" width="334" height="20"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product no longer available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCr-6c-0xu">
+                            <rect key="frame" x="84" y="22.5" width="207.5" height="20"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                             <color key="textColor" red="0.93362165178571432" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="64" id="9bU-hg-Oxa"/>
-                        <constraint firstAttribute="trailing" secondItem="mCr-6c-0xu" secondAttribute="trailing" constant="8" id="Ik8-pH-ItR"/>
-                        <constraint firstItem="mCr-6c-0xu" firstAttribute="centerY" secondItem="Rua-hb-65p" secondAttribute="centerY" id="SSq-WH-Y7u"/>
-                        <constraint firstItem="Rua-hb-65p" firstAttribute="centerY" secondItem="JXq-GU-QmZ" secondAttribute="centerY" id="asy-we-CnC"/>
-                        <constraint firstItem="Rua-hb-65p" firstAttribute="leading" secondItem="JXq-GU-QmZ" secondAttribute="leading" constant="10" id="fpK-G6-fQm"/>
-                        <constraint firstItem="mCr-6c-0xu" firstAttribute="leading" secondItem="Rua-hb-65p" secondAttribute="trailing" constant="8" id="fw2-BF-H5o"/>
+                        <constraint firstItem="mCr-6c-0xu" firstAttribute="centerY" secondItem="JXq-GU-QmZ" secondAttribute="centerY" id="MQ8-pz-tXk"/>
+                        <constraint firstItem="mCr-6c-0xu" firstAttribute="centerX" secondItem="JXq-GU-QmZ" secondAttribute="centerX" id="q6g-tl-ztW"/>
                     </constraints>
                 </view>
             </subviews>
@@ -176,7 +166,4 @@
             <point key="canvasLocation" x="34.5" y="74.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="warring" width="16" height="16"/>
-    </resources>
 </document>
