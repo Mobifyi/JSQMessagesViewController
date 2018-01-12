@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment version="2352" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,14 +20,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JSQMessagesViewController">
             <connections>
-                <outlet property="NotAvailableTextOutlet" destination="mCr-6c-0xu" id="dLJ-h3-uW5"/>
                 <outlet property="collectionView" destination="l9u-2b-4LK" id="bLP-6g-CkO"/>
                 <outlet property="inputToolbar" destination="BoD-Az-3DM" id="w74-g9-1qA"/>
-                <outlet property="productDetailsViewOutlet" destination="xNp-Tc-DQY" id="b7H-oC-2lZ"/>
-                <outlet property="productImageViewOutlet" destination="8Qr-ud-fMu" id="AOs-2E-THe"/>
-                <outlet property="productNameLabelOutlet" destination="1gl-3C-YkK" id="PA2-K0-lVN"/>
-                <outlet property="productNoLongerExistView" destination="JXq-GU-QmZ" id="KbN-ht-ONX"/>
-                <outlet property="productPriceLabelOutlet" destination="P3d-gb-E8C" id="7KX-Md-eoa"/>
                 <outlet property="view" destination="mUa-cS-ru4" id="nki-T1-RTI"/>
             </connections>
         </placeholder>
@@ -107,9 +101,6 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="68K-q4-qak">
                             <rect key="frame" x="0.0" y="0.0" width="367" height="64"/>
                             <state key="normal" title="Details"/>
-                            <connections>
-                                <action selector="detailsButtonAction:" destination="-1" eventType="touchUpInside" id="82k-SJ-xqb"/>
-                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
@@ -127,7 +118,7 @@
                         <constraint firstItem="yMF-0y-e4F" firstAttribute="leading" secondItem="s3A-4D-Eow" secondAttribute="trailing" constant="8" id="rDH-Wg-l78"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXq-GU-QmZ">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXq-GU-QmZ">
                     <rect key="frame" x="0.0" y="20" width="375" height="64"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product no longer available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCr-6c-0xu">
