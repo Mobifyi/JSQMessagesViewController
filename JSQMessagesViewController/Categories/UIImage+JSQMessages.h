@@ -89,6 +89,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @discussion This is the default icon for the message accessory button.
  */
 + (UIImage *)jsq_shareActionImage;
++ (UIImage *)jsq_sendImage;
+
++ (UIImage *)jsq_voiceImage;
 
 @end
 

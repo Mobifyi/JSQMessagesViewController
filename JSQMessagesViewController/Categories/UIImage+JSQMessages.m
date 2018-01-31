@@ -109,4 +109,14 @@
 {
     return [UIImage jsq_bubbleImageFromBundleWithName:@"share"];
 }
+
++ (UIImage *)jsq_sendImage{
+    
+        return  [UIImage jsq_bubbleImageFromBundleWithName:@"send"];
+}
+
++ (UIImage *)jsq_voiceImage{
+        return  [UIImage jsq_bubbleImageFromBundleWithName:@"record_icon"];
+    
+}
 @end
