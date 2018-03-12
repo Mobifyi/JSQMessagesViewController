@@ -17,12 +17,14 @@ class ChatViewController: JSQMessagesViewController {
     var outgoingBubble: JSQMessagesBubbleImage!
     fileprivate var displayName: String!
     
+    var changedFrame : CGRect!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         productPriceLabelOutlet?.text = "hey there!"
         productNameLabelOutlet?.text = "hey there!"
-
+        
         // Setup navigation
         setupBackButton()
         
@@ -64,7 +66,10 @@ class ChatViewController: JSQMessagesViewController {
         collectionView?.collectionViewLayout.springinessEnabled = false
         
         automaticallyScrollsToMostRecentMessage = true
+        // [JSQMessagesCollectionViewCell registerMenuAction:@selector(delete:)];
 
+        JSQMessagesCollectionViewCell.registerMenuAction(#selector(reply))
+        
         self.collectionView?.reloadData()
         self.collectionView?.layoutIfNeeded()
     }
@@ -73,11 +78,38 @@ class ChatViewController: JSQMessagesViewController {
         let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(backButtonTapped))
         navigationItem.leftBarButtonItem = backButton
     }
+    
     func backButtonTapped() {
         dismiss(animated: true, completion: nil)
     }
     
+    @objc func reply() {
+        
+    }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        changedFrame = self.view.frame
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.keyboardFrameWillChange(notification:)), name: .UIKeyboardWillChangeFrame, object: nil)
+    }
+    
+    @objc func keyboardFrameWillChange(notification: NSNotification) {
+        let keyboardEndFrame = ((notification.userInfo! as NSDictionary).object(forKey: UIKeyboardFrameEndUserInfoKey)! as AnyObject).cgRectValue
+        let animationCurve = UIViewAnimationCurve(rawValue: ((notification.userInfo! as NSDictionary).object(forKey:UIKeyboardAnimationCurveUserInfoKey)! as AnyObject).integerValue)
+        let animationDuration: TimeInterval = ((notification.userInfo! as NSDictionary).object(forKey:UIKeyboardAnimationDurationUserInfoKey)! as AnyObject).doubleValue
+        
+        UIView.beginAnimations(nil, context: nil)
+        UIView.setAnimationDuration(animationDuration)
+        UIView.setAnimationCurve(animationCurve!)
+        
+        var newFrame = self.view.frame
+        let keyboardFrameEnd = self.view.convert(keyboardEndFrame!, to: nil)
+        newFrame.origin.y = (keyboardFrameEnd.origin.y-54)
+        newFrame.size.height = 60
+        changedFrame = newFrame
+        UIView.commitAnimations()
+        self.updateReplyViewFrame()
+    }
     
     func receiveMessagePressed(_ sender: UIBarButtonItem) {
         /**
@@ -105,7 +137,7 @@ class ChatViewController: JSQMessagesViewController {
         if (copyMessage == nil) {
             copyMessage = JSQMessage(senderId: AvatarIdJobs, displayName: getName(User.Jobs), text: "First received!",messageId:"asbcasff")
         }
-            
+        
         var newMessage:JSQMessage!
         var newMediaData:JSQMessageMediaData!
         var newMediaAttachmentCopy:AnyObject?
@@ -372,6 +404,14 @@ class ChatViewController: JSQMessagesViewController {
         return nil
     }
     
+    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
+        if action.description == "sn_handlePanGesture:" {
+            self.collectionView?.reloadItems(at: [indexPath])
+            let msgObj = self.messages[indexPath.row]
+            self.addViewOnTopOfKeyboard(withMsgObj: msgObj)
+        }
+    }
+    
     override func collectionView(_ collectionView: JSQMessagesCollectionView, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath) -> NSAttributedString? {
         let message = messages[indexPath.item]
         
@@ -388,7 +428,7 @@ class ChatViewController: JSQMessagesViewController {
         if message.senderId == self.senderId() {
             return nil
         }
-
+        
         return NSAttributedString(string: message.senderDisplayName)
     }
     
@@ -417,7 +457,7 @@ class ChatViewController: JSQMessagesViewController {
         
         return 0.0
     }
-
+    
     override func collectionView(_ collectionView: JSQMessagesCollectionView, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout, heightForMessageBubbleTopLabelAt indexPath: IndexPath) -> CGFloat {
         
         /**
@@ -451,4 +491,37 @@ class ChatViewController: JSQMessagesViewController {
         print("Details button Pressed")
     }
     
+    func addViewOnTopOfKeyboard(withMsgObj msgObj : JSQMessage) {
+        self.inputToolbar.preferredDefaultHeight = 104
+        if let replyView = Bundle.main.loadNibNamed("ReplyView", owner: self, options: nil)?.first as? ReplyView {
+            replyView.replyViewDismissDelegate = self
+            replyView.selectedMessage = msgObj
+            replyView.frame = self.changedFrame
+            self.view.addSubview(replyView)
+            self.view.bringSubview(toFront: replyView)
+        }
+    }
+    
+    func updateReplyViewFrame() {
+        if let replyView = self.view.viewWithTag(100) {
+            replyView.frame = self.changedFrame
+        }
+    }
+    
+    func replyAction() {
+        
+    }
+}
+
+extension ChatViewController : ReplyViewDismissDelegate {
+    func replyViewClosedButtonSelected(_ replyView: UIView) {
+        replyView.removeFromSuperview()
+    }
+    
+    func replyMessageSelected(withMessageObj msgObj: JSQMessage) {
+        if let index = self.messages.index(of: msgObj) {
+            let indexPath = IndexPath(item: index, section: 0)
+            self.collectionView?.scrollToItem(at: indexPath, at: .centeredVertically, animated: true)
+        }
+    }
 }

@@ -217,6 +217,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)registerMenuAction:(SEL)action;
 
+@property(weak, nonatomic, readwrite) UIPanGestureRecognizer *panGestureRecognizer;
+
 @property (weak, nonatomic) IBOutlet UILabel *timeLabelOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *dayLabelOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *currentStatusOutlet;

@@ -108,7 +108,7 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
 }
 
 
-@interface JSQMessagesViewController () <JSQMessagesInputToolbarDelegate>
+@interface JSQMessagesViewController () <JSQMessagesInputToolbarDelegate, UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet JSQMessagesCollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet JSQMessagesInputToolbar *inputToolbar;
@@ -172,7 +172,8 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
     self.incomingMediaCellIdentifier = [JSQMessagesCollectionViewCellIncoming mediaCellReuseIdentifier];
 
     // NOTE: let this behavior be opt-in for now
-    // [JSQMessagesCollectionViewCell registerMenuAction:@selector(delete:)];
+//     [JSQMessagesCollectionViewCell registerMenuAction:@selector(delete:)];
+//    [JSQMessagesCollectionViewCell registerMenuAction:@selector(customAction:)];
 
     self.showTypingIndicator = NO;
 
@@ -230,9 +231,7 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     [[[self class] nib] instantiateWithOwner:self options:nil];
-
     [self jsq_configureMessagesViewController];
     [self jsq_registerForNotifications:YES];
 }
@@ -531,6 +530,7 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
     JSQMessagesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     cell.accessibilityIdentifier = [NSString stringWithFormat:@"(%ld, %ld)", (long)indexPath.section, (long)indexPath.row];
     cell.delegate = collectionView;
+    cell.panGestureRecognizer.delegate = self;
 
     if (!isMediaMessage) {
         cell.textView.text = [messageItem text];
@@ -681,7 +681,9 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
 
 - (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
 {
-    if (action == @selector(copy:) || action == @selector(delete:)) {
+    if (action == @selector(copy:) || action == @selector(delete:)
+//        || action == @selector(reply:) || action == @selector(forward:))
+    ){
         return YES;
     }
 
@@ -976,6 +978,16 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
 }
 
 - (IBAction)detailsButtonAction:(id)sender {
+}
+
+#pragma mark - Pan Gesture Delegate
+
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    return YES;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(nonnull UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
 }
 
 @end
