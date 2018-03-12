@@ -68,6 +68,7 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
     self.contentView.rightBarButtonItem = [toolbarButtonFactory defaultSendButtonItem];
 
     [self updateSendButtonEnabledState];
+    self.contentView.rightBarButtonItem.enabled = YES;
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(textViewTextDidChangeNotification:)
@@ -119,21 +120,27 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
 
 - (void)updateSendButtonEnabledState
 {
-    if (!self.enablesSendButtonAutomatically) {
-        return;
-    }
-
+    
     BOOL enabled = [self.contentView.textView hasText];
     switch (self.sendButtonLocation) {
-        case JSQMessagesInputSendButtonLocationRight:
+            case JSQMessagesInputSendButtonLocationRight:
             self.contentView.rightBarButtonItem.enabled = enabled;
-            break;
-        case JSQMessagesInputSendButtonLocationLeft:
+            if (self.contentView.textView.text.length > 0){
+                UIImage *sendImage = [UIImage jsq_sendImage];
+                [self.contentView.rightBarButtonItem setImage:sendImage forState:UIControlStateNormal];}
+            else{
+                UIImage *voiceImage = [UIImage jsq_voiceImage];
+                [self.contentView.rightBarButtonItem setImage:voiceImage forState:UIControlStateNormal];
+            }
+            case JSQMessagesInputSendButtonLocationLeft:
             self.contentView.leftBarButtonItem.enabled = enabled;
             break;
         default:
             break;
     }
+    
+    self.contentView.rightBarButtonItem.enabled = YES;
+    self.contentView.leftBarButtonItem.enabled = YES;
 }
 
 #pragma mark - Notifications
