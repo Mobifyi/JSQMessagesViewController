@@ -141,9 +141,9 @@
 				F80276D21CE38FEB00063D88 /* Conversation.swift */,
 				371B88341D42DE7000CC7271 /* InitalTableViewController.swift */,
 				F82E19201CF0F2BE0069B211 /* SettingsTableViewController.swift */,
-				F82D09C61CDFBB4900DD74CF /* Main.storyboard */,
 				41AF84E41CFCFE17006ED473 /* Images.xcassets */,
 				F82D09CB1CDFBB4900DD74CF /* LaunchScreen.storyboard */,
+				F82D09C61CDFBB4900DD74CF /* Main.storyboard */,
 				A0844FA01D38367C00D0EB83 /* jsq_messages_sample.m4a */,
 				F82D09CE1CDFBB4900DD74CF /* Info.plist */,
 			);

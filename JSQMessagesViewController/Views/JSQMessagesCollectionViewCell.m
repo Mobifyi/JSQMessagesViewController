@@ -424,7 +424,9 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
 
 -(void)sn_handlePanGesture:(UIPanGestureRecognizer *)pan {
     
-    if (pan.state == UIGestureRecognizerStateBegan) {}
+    if (pan.state == UIGestureRecognizerStateBegan) {
+        NSLog(@"%f %f",[pan velocityInView:self].x,[pan velocityInView:self].y);
+    }
     else if (pan.state == UIGestureRecognizerStateChanged) {
         [self setNeedsLayout];
     } else {
@@ -436,6 +438,10 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
             UICollectionView *collectionView = (UICollectionView *)self.superview;
             NSIndexPath *indexPath = [collectionView indexPathForItemAtPoint:self.center];
             [[collectionView delegate] collectionView:collectionView performAction:@selector(sn_handlePanGesture:) forItemAtIndexPath:indexPath withSender:nil];
+        } else {
+            UICollectionView *collectionView = (UICollectionView *)self.superview;
+            NSIndexPath *indexPath = [collectionView indexPathForItemAtPoint:self.center];
+            [[collectionView delegate] collectionView:collectionView performAction:@selector(sn_reloadCell:) forItemAtIndexPath:indexPath withSender:nil];
         }
     }
 }

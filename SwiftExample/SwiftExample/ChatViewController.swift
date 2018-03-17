@@ -409,6 +409,8 @@ class ChatViewController: JSQMessagesViewController {
             self.collectionView?.reloadItems(at: [indexPath])
             let msgObj = self.messages[indexPath.row]
             self.addViewOnTopOfKeyboard(withMsgObj: msgObj)
+        } else if action.description == "sn_reloadCell:" {
+            self.collectionView?.reloadItems(at: [indexPath])
         }
     }
     

@@ -354,6 +354,8 @@ UITextViewDelegate>
  */
 @property (weak, nonatomic) IBOutlet UILabel *NotAvailableTextOutlet;
 
+- (void)jsq_registerForNotifications:(BOOL)registerForNotifications;
+
 @end
 
 NS_ASSUME_NONNULL_END

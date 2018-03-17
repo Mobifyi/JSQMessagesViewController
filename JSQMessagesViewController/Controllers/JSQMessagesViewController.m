@@ -990,4 +990,14 @@ static void JSQInstallWorkaroundForSheetPresentationIssue26295020(void) {
     return YES;
 }
 
+-(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    UIPanGestureRecognizer *pgesture = (UIPanGestureRecognizer *)gestureRecognizer;
+    
+    CGPoint velocity = [pgesture velocityInView:pgesture.view];
+    if (velocity.x > 0) {
+        return YES;
+    }
+    return NO;
+}
+
 @end
